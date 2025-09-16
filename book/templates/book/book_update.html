@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block title %}書籍編集{% endblock title %}
+
+{% block content %}
+    <h1>書籍編集</h1>
+    <form method="post" enctype="multipart/form-data" class="p-4 m-4 bg-light border border-success rounded form-group">
+        {% csrf_token %}
+        {{form.as_p}}
+        <button type='submit'>編集</button>
+    </form>
+    <a href="{% url 'list-book' %}" class="btn btn-primary">一覧へ</a>
+{% endblock content %}

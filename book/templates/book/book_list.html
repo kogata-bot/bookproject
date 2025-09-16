@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% comment %} すべてのデータをとるListView {% endcomment %}
+
+{% block title %}書籍一覧{% endblock title %}
+
+{% block content %}
+    {% for b in book_list %}
+    <div class="card">
+        <h5 class="card-header">{{ b.title }}</h5>
+        <div class="card-body">
+            <p class="card-text">{{ b.text }}</p>
+            <a href="{% url 'detail-book' b.pk %}" class="btn btn-primary">詳細</a>   
+            <h6 class="card-title">{{ b.category }}</h6>  
+            <h6 class="card-title">{{ b.getNewPk }}</h6>
+        </div>
+    </div>
+    {% endfor %} 
+    {% include 'book/components/pagination.html' %}   
+{% endblock content %}
+
+
+
+

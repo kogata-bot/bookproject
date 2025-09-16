@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block title %}書籍追加{% endblock title %}
+
+{% block content %}
+    <h1>書籍追加</h1>
+    <form method="post" enctype="multipart/form-data" class="p-4 m-4 bg-light border border-success rounded form-group">
+        {% csrf_token %}
+        {{form.as_p}}
+        <input type='submit' value='追加'>
+    </form>
+{% endblock content %}
